@@ -6,6 +6,7 @@ import {
   VideoCameraOutlined,
 } from "@ant-design/icons";
 import { Children, createElement } from "react";
+import { NavLink, Outlet } from "react-router-dom";
 
 // const items = [
 //   UserOutlined,
@@ -19,16 +20,22 @@ import { Children, createElement } from "react";
 // }));
 
 const items: MenuProps["items"] = [
-  { key: "1", label: "Home" },
-  { key: "2", label: "About" },
-  { key: "3", label: "Admission" },
   {
-    key: "4",
-    label: "Courses",
+    key: "Dashboard",
+    label: <NavLink to="/admin/dashboard">Dashboard</NavLink>,
+  },
+  {
+    key: "User Management",
+    label: "User Management",
     children: [
-      { key: "5", label: "Front-End" },
-      { key: "6", label: "Back-End" },
-      { key: "7", label: "Full-Stack" },
+      {
+        key: "Create-Admin",
+        label: <NavLink to="/admin/create-admin">Create Admin</NavLink>,
+      },
+      {
+        key: "Create-Faculty",
+        label: <NavLink to="/admin/create-faculty">Create Faculty</NavLink>,
+      },
     ],
   },
 ];
@@ -72,7 +79,7 @@ const MainLayout = () => {
               minHeight: 360,
             }}
           >
-            Main content will be here
+            <Outlet />
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
