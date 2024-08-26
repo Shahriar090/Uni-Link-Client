@@ -1,22 +1,37 @@
-import { Layout, Menu } from "antd";
+import { Layout, Menu, MenuProps } from "antd";
 const { Header, Content, Footer, Sider } = Layout;
 import {
   UploadOutlined,
   UserOutlined,
   VideoCameraOutlined,
 } from "@ant-design/icons";
-import { createElement } from "react";
+import { Children, createElement } from "react";
 
-const items = [
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-  UserOutlined,
-].map((icon, index) => ({
-  key: String(index + 1),
-  icon: createElement(icon),
-  label: `nav ${index + 1}`,
-}));
+// const items = [
+//   UserOutlined,
+//   VideoCameraOutlined,
+//   UploadOutlined,
+//   UserOutlined,
+// ].map((icon, index) => ({
+//   key: String(index + 1),
+//   icon: createElement(icon),
+//   label: `nav ${index + 1}`,
+// }));
+
+const items: MenuProps["items"] = [
+  { key: "1", label: "Home" },
+  { key: "2", label: "About" },
+  { key: "3", label: "Admission" },
+  {
+    key: "4",
+    label: "Courses",
+    children: [
+      { key: "5", label: "Front-End" },
+      { key: "6", label: "Back-End" },
+      { key: "7", label: "Full-Stack" },
+    ],
+  },
+];
 
 const MainLayout = () => {
   return (
@@ -31,7 +46,16 @@ const MainLayout = () => {
           console.log(collapsed, type);
         }}
       >
-        <div className="demo-logo-vertical" />
+        <div
+          style={{
+            height: "4rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <h1 style={{ color: "white", fontSize: "1.5rem" }}>UniLink</h1>
+        </div>
         <Menu
           theme="dark"
           mode="inline"
