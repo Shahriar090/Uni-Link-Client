@@ -5,10 +5,10 @@ import CreateStudent from "../pages/admin/CreateStudent";
 import Dashboard from "../pages/admin/Dashboard";
 import { NavLink } from "react-router-dom";
 
-type TAdminRoutesType = {
-  path: string;
-  element: ReactNode;
-};
+// type TAdminRoutesType = {
+//   path: string;
+//   element: ReactNode;
+// };
 
 type TSidebarItem = {
   key: string;
@@ -16,8 +16,7 @@ type TSidebarItem = {
   children?: TSidebarItem[];
 };
 
-// admin paths two
-const adminPaths = [
+export const adminPaths = [
   {
     name: "Dashboard",
     path: "dashboard",
@@ -47,21 +46,21 @@ const adminPaths = [
 
 // applying reduce method
 
-export const adminRoutes = adminPaths.reduce(
-  (acc: TAdminRoutesType[], item) => {
-    if (item.path && item.element) {
-      acc.push({ path: item.path, element: item.element });
-    }
+// export const adminRoutes = adminPaths.reduce(
+//   (acc: TAdminRoutesType[], item) => {
+//     if (item.path && item.element) {
+//       acc.push({ path: item.path, element: item.element });
+//     }
 
-    if (item.children) {
-      item.children.forEach((child) => {
-        acc.push({ path: child.path, element: child.element });
-      });
-    }
-    return acc;
-  },
-  []
-);
+//     if (item.children) {
+//       item.children.forEach((child) => {
+//         acc.push({ path: child.path, element: child.element });
+//       });
+//     }
+//     return acc;
+//   },
+//   []
+// );
 
 // applying reduce method to sidebar items
 
