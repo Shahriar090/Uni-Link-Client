@@ -5,7 +5,7 @@ import { useLoginMutation } from "../redux/features/auth/authApi";
 const Login = () => {
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      id: "0001",
+      id: "A-0001",
       password: "admin123",
     },
   });
