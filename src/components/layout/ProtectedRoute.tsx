@@ -9,7 +9,7 @@ const ProtectedRoute = ({ children }: { children: ReactNode }) => {
   if (!token) {
     return <Navigate to="/login" replace={true} />;
   }
-  return { children };
+  return <div>{children}</div>;
 };
 
 export default ProtectedRoute;
