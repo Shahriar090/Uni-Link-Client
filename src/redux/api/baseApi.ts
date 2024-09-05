@@ -1,4 +1,11 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import {
+  BaseQueryApi,
+  BaseQueryFn,
+  createApi,
+  DefinitionType,
+  FetchArgs,
+  fetchBaseQuery,
+} from "@reduxjs/toolkit/query/react";
 import { RootState } from "../store";
 import { logout, setUser } from "../features/auth/authSlice";
 
@@ -18,7 +25,12 @@ const baseQuery = fetchBaseQuery({
 
 //  Custom base query with refresh token.
 
-const baseQueryWithRefreshToken = async (args, api, extraOptions) => {
+const baseQueryWithRefreshToken: BaseQueryFn<
+  FetchArgs,
+  BaseQueryApi,
+  DefinitionType
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> = async (args, api, extraOptions): Promise<any> => {
   // Call the base query and store the result in the result variable.
   let result = await baseQuery(args, api, extraOptions);
 
