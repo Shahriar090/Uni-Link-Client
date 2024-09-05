@@ -7,6 +7,7 @@ import { verifyToken } from "../utils/verifyToken";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import PhForm from "../components/form/PhForm";
+import PhInput from "../components/form/PhInput";
 
 const Login = () => {
   const dispatch = useAppDispatch();
@@ -44,12 +45,10 @@ const Login = () => {
       <div>
         <PhForm onSubmit={onsubmit}>
           <div>
-            <label htmlFor="id">ID:</label>
-            <input type="text" id="id" {...register("id")} />
+            <PhInput type={"id"} name={"id"} label={"Id"} />
           </div>
           <div>
-            <label htmlFor="password">Password:</label>
-            <input type="text" id="password" {...register("password")} />
+            <PhInput type={"text"} name={"password"} label={"Password"} />
           </div>
           <Button htmlType="submit">Submit</Button>
         </PhForm>
