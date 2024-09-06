@@ -1,4 +1,4 @@
-import { Button, Input } from "antd";
+import { Button } from "antd";
 import { FieldValues, useForm } from "react-hook-form";
 import { useLoginMutation } from "../redux/features/auth/authApi";
 import { useAppDispatch } from "../redux/hooks";
@@ -12,12 +12,12 @@ import PhInput from "../components/form/PhInput";
 const Login = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { register } = useForm({
-    defaultValues: {
-      id: "A-0001",
-      password: "admin123",
-    },
-  });
+  // const { register } = useForm({
+  //   defaultValues: {
+  //     id: "A-0001",
+  //     password: "admin123",
+  //   },
+  // });
   const [login] = useLoginMutation();
 
   const onsubmit = async (data: FieldValues) => {
@@ -45,10 +45,10 @@ const Login = () => {
       <div>
         <PhForm onSubmit={onsubmit}>
           <div>
-            <Input type={"id"} name={"id"} label={"Id"} />
+            <PhInput type={"id"} name={"id"} label={"Id"} />
           </div>
           <div>
-            <Input type={"text"} name={"password"} label={"Password"} />
+            <PhInput type={"text"} name={"password"} label={"Password"} />
           </div>
           <Button htmlType="submit">Submit</Button>
         </PhForm>
