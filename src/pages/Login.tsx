@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, Input } from "antd";
 import { FieldValues, useForm } from "react-hook-form";
 import { useLoginMutation } from "../redux/features/auth/authApi";
 import { useAppDispatch } from "../redux/hooks";
@@ -45,10 +45,10 @@ const Login = () => {
       <div>
         <PhForm onSubmit={onsubmit}>
           <div>
-            <PhInput type={"id"} name={"id"} label={"Id"} />
+            <Input type={"id"} name={"id"} label={"Id"} />
           </div>
           <div>
-            <PhInput type={"text"} name={"password"} label={"Password"} />
+            <Input type={"text"} name={"password"} label={"Password"} />
           </div>
           <Button htmlType="submit">Submit</Button>
         </PhForm>
